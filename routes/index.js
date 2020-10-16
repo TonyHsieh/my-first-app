@@ -3,6 +3,8 @@ const router = express.Router()
 
 let user = null
 
+let connectionString = process.env.CONN_STRING
+
 const profiles = [
 	{name: 'Steven', city:'Sydney', profession:'doctor'},
 	{name: 'Mark', city:'Perth', profession:'lawyer'},
@@ -11,6 +13,7 @@ const profiles = [
 
 router.get('/', (req, res, next) => {
 	const data = {
+		connectionString: connectionString,
 		name: 'Index',
 		date: req.timestamp,
 		profiles: profiles,
